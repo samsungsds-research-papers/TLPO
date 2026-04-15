@@ -1,0 +1,3 @@
+task: mmmlu_KO_KR
+dataset_name: KO_KR
+include: "_default_mmmlu_yaml"

@@ -1,0 +1,15 @@
+{
+	"en": "Given the following problem, reason and give a final answer to the problem.\nProblem: {{question}}\nYour response should end with \"The final answer is [answer]\" where [answer] is the response to the problem.\n",
+
+	"zh": "针对给定问题说明理由并给出最终答案。\n问题：{question}\n您的回答应以以下句子结尾：“问题的答案是[正确答案]。”此处[正确答案]即为给定问题的答案。\n",
+
+	"ar": "اشرح طريقة حل المسألة المعطاة وقدم الإجابة النهائية. المسألة: {question} يجب أن تنتهي إجابتك بالجملة التالية: ”إجابة المسألة هي [الإجابة الصحيحة]“. هنا، [الإجابة الصحيحة] هي حل المسألة المعطاة.\n",
+
+	"ko": "주어진 문제에 대해 이유를 설명하고 최종 답을 제시하십시오.\n문제: {question}\n당신의 응답은 다음 문장으로 끝나야 합니다.\"문제의 답은 [정답]입니다.\" 여기서 [정답]은 주어진 문제의 답입니다.\n",
+
+	"ja": "与えられた問題について理由を説明し、最終的な答えを提示してください。\n問題: {question}\nあなたの回答は次の文で終わらなければなりません。「問題の答えは[正解]です。」 ここで[正解]は与えられた問題の答えです。\n",
+
+	"es":"Explique su razonamiento para el problema dado y proporcione la respuesta final.\nProblema: {question}\nSu respuesta debe terminar con la siguiente frase: «La respuesta al problema es [respuesta correcta]». Aquí, [respuesta correcta] es la solución al problema dado.\n",
+
+	"fr":"Expliquez votre raisonnement et donnez la réponse finale à la question posée.\nQuestion : {question}\nVotre réponse doit se terminer par la phrase suivante : « La réponse à la question est [réponse correcte]. » Ici, [réponse correcte] correspond à la réponse à la question posée.\n"
+}

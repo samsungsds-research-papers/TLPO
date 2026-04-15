@@ -1,0 +1,3 @@
+task: mmmlu_YO_NG
+dataset_name: YO_NG
+include: "_default_mmmlu_yaml"

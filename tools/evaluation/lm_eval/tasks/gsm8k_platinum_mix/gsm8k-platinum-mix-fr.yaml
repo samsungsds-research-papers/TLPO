@@ -1,0 +1,16 @@
+task: gsm8k_platinum_mix_ko
+doc_to_text: "Expliquez votre raisonnement et donnez la réponse finale à la question posée.\nQuestion : {{question}}\nVotre réponse doit se terminer par la phrase suivante : « La réponse à la question est [réponse correcte]. » Ici, [réponse correcte] correspond à la réponse à la question posée.\n"
+filter_list:
+- filter:
+  - function: regex
+    group_select: -1
+    regex_pattern: La réponse à la question est ((-?[$0-9.,]{2,})|(-?[0-9]+))
+  - function: take_first
+  name: strict-match
+- filter:
+  - function: regex
+    group_select: -1
+    regex_pattern: (-?[$0-9.,]{2,})|(-?[0-9]+)
+  - function: take_first
+  name: flexible-extract
+include: "_default_gsm8k_platinum_mix_yaml"

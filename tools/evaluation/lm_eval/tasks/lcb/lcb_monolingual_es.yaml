@@ -1,0 +1,3 @@
+task: lcb_monolingual_es
+process_docs: !function utils.process_es
+include: "_default_monolingual_yaml"

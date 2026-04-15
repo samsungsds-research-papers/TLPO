@@ -1,0 +1,3 @@
+task: mmmlu_AR_XY
+dataset_name: AR_XY
+include: "_default_mmmlu_yaml"

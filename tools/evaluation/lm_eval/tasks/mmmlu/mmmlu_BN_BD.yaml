@@ -1,0 +1,3 @@
+task: mmmlu_BN_BD
+dataset_name: BN_BD
+include: "_default_mmmlu_yaml"

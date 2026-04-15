@@ -1,0 +1,3 @@
+task: mmmlu_JA_JP
+dataset_name: JA_JP
+include: "_default_mmmlu_yaml"

@@ -1,0 +1,22 @@
+group: lcb
+task:
+  - lcb_crosslingual_ar
+  - lcb_crosslingual_es
+  - lcb_crosslingual_fr
+  - lcb_crosslingual_it
+  - lcb_crosslingual_ja
+  - lcb_crosslingual_ko
+  - lcb_crosslingual_zh
+  - lcb_monolingual_ar
+  - lcb_monolingual_es
+  - lcb_monolingual_fr
+  - lcb_monolingual_it
+  - lcb_monolingual_ja
+  - lcb_monolingual_ko
+  - lcb_monolingual_zh
+aggregate_metric_list:
+  - metric: bleu
+    aggregation: mean
+    weight_by_size: true
+metadata:
+  version: 1.0

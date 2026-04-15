@@ -1,0 +1,3 @@
+task: mmmlu_PT_BR
+dataset_name: PT_BR
+include: "_default_mmmlu_yaml"

@@ -1,0 +1,31 @@
+group: mif
+task:
+  - mif_ar
+  - mif_de
+  - mif_en
+  - mif_es
+  - mif_fr
+  - mif_id
+  - mif_it
+  - mif_ja
+  - mif_ko
+  - mif_pt
+  - mif_ru
+  - mif_tr
+  - mif_vi
+  - mif_zh
+aggregate_metric_list:
+  - metric: prompt_level_strict_acc
+    aggregation: mean
+    weight_by_size: true
+  - metric: inst_level_strict_acc
+    aggregation: mean
+    weight_by_size: true
+  - metric: prompt_level_loose_acc
+    aggregation: mean
+    weight_by_size: true
+  - metric: inst_level_loose_acc
+    aggregation: mean
+    weight_by_size: true
+metadata:
+  version: 2.0

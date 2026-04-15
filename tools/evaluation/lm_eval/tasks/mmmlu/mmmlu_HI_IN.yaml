@@ -1,0 +1,3 @@
+task: mmmlu_HI_IN
+dataset_name: HI_IN
+include: "_default_mmmlu_yaml"

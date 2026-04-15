@@ -1,0 +1,24 @@
+dataset_path: openai/MMMLU
+output_type: generate_until
+test_split: test
+num_fewshot: 0
+doc_to_text: "Answer the following multiple choice question. The last line of your response should be of the following format: 'Answer: $LETTER' (without quotes) where LETTER is one of ABCD. Think step by step before answering.\n\n{{Question}}\n\nA) {{A}}\nB) {{B}}\nC) {{C}}\nD) {{D}}"
+doc_to_target: Answer
+generation_kwargs:
+  until:
+    - "</s>"
+    - "<|end_of_text|>"
+    - "<|endoftext|>"
+    - "<|im_end|>"
+  do_sample: True
+  temperature: 0.5
+  max_gen_toks: 1024
+process_results: !function utils.process_results
+metric_list:
+  - metric: exact_match
+    aggregation: mean
+    higher_is_better: true
+    ignore_case: true
+    ignore_punctuation: true
+metadata:
+  version: 1.0

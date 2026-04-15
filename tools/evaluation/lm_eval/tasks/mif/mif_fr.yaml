@@ -1,0 +1,4 @@
+task: mif_fr
+include: "_default_template_yaml"
+dataset_kwargs:
+  data_files: AIDC-AI/Marco-Bench-MIF/fr.jsonl

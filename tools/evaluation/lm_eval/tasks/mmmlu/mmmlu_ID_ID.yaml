@@ -1,0 +1,3 @@
+task: mmmlu_ID_ID
+dataset_name: ID_ID
+include: "_default_mmmlu_yaml"

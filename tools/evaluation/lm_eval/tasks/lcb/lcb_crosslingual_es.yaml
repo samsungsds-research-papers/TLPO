@@ -1,0 +1,3 @@
+task: lcb_crosslingual_es
+process_docs: !function utils.process_es
+include: "_default_crosslingual_yaml"

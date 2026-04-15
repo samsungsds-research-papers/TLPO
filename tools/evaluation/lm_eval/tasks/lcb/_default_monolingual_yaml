@@ -1,0 +1,24 @@
+task: lcb_monolingual_ko
+dataset_path: language-confusion/test_sets/monolingual
+dataset_name: null
+output_type: generate_until
+test_split: train
+num_fewshot: 0
+doc_to_text: prompt
+doc_to_target: 0
+generation_kwargs:
+  until:
+    - "</s>"
+    - "<|end_of_text|>"
+    - "<|endoftext|>"
+    - "<|im_end|>"
+  do_sample: false
+  temperature: 0.0
+  max_gen_toks: 1024
+process_results: !function utils.process_results
+metric_list:
+  - metric: none
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 1.0

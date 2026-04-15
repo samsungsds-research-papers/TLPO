@@ -1,0 +1,3 @@
+task: lcb_monolingual_ko
+process_docs: !function utils.process_ko
+include: "_default_monolingual_yaml"

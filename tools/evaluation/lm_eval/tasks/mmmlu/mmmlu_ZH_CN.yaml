@@ -1,0 +1,3 @@
+task: mmmlu_ZH_CN
+dataset_name: ZH_CN
+include: "_default_mmmlu_yaml"

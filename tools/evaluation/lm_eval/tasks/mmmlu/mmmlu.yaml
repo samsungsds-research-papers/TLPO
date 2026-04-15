@@ -1,0 +1,22 @@
+group: mmmlu
+task:
+  - mmmlu_AR_XY
+  - mmmlu_BN_BD
+  - mmmlu_DE_DE
+  - mmmlu_ES_LA
+  - mmmlu_FR_FR
+  - mmmlu_HI_IN
+  - mmmlu_ID_ID
+  - mmmlu_IT_IT
+  - mmmlu_JA_JP
+  - mmmlu_KO_KR
+  - mmmlu_PT_BR
+  - mmmlu_SW_KE
+  - mmmlu_YO_NG
+  - mmmlu_ZH_CN
+aggregate_metric_list:
+  - metric: acc
+    aggregation: mean
+    weight_by_size: true
+metadata:
+  version: 1.0

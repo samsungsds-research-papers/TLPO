@@ -1,0 +1,16 @@
+task: gsm8k_platinum_mix_zh
+doc_to_text: "针对给定问题说明理由并给出最终答案。\n问题：{{question}}\n您的回答应以以下句子结尾：“问题的答案是[正确答案]。”此处[正确答案]即为给定问题的答案。\n"
+filter_list:
+- filter:
+  - function: regex
+    group_select: -1
+    regex_pattern: 问题的答案是 ((-?[$0-9.,]{2,})|(-?[0-9]+))
+  - function: take_first
+  name: strict-match
+- filter:
+  - function: regex
+    group_select: -1
+    regex_pattern: (-?[$0-9.,]{2,})|(-?[0-9]+)
+  - function: take_first
+  name: flexible-extract
+include: "_default_gsm8k_platinum_mix_yaml"
