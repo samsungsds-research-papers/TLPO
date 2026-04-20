@@ -111,9 +111,6 @@ valid_data_params = {
 model_params = {
     'model_type': 'llama',
     'model_path': os.path.join(DATA_DIR, "pretrained_model/Meta-Llama-3.1-8B-Instruct"),
-
-    #'precision': 'bf16-true',
-    #'precision': 'bf16-mixed',
     'precision': '32-true',
 }
 
@@ -214,12 +211,9 @@ def _set_debug_mode_parameters():
     train_params['eval_num_in_epoch'] = 1
     train_params['eval_before_train'] = False
 
-    model_params['precision'] = 'bf16-true'
-
     if model_params['model_type']=='llama':
         model_params['model_path'] = os.path.join(DATA_DIR, "pretrained_model/Meta-Llama-3.2-3B-Instruct")
-       
-    #DEBUG_MODE_POST_PROCESSING = True
+
 
     
 def parse_args(args_str=None):
@@ -253,7 +247,6 @@ def parse_args(args_str=None):
     parser.add_argument('-model_type', type=str, default=None)
     parser.add_argument('-trainer_type', type=str, default=None)
     
-    parser.add_argument('-precision', type=str, default=None)
     parser.add_argument('-num_concurrent_solutions', type=int, default=None)
     parser.add_argument('-num_token_extension', type=int, default=None)
 
@@ -306,10 +299,6 @@ def parse_args(args_str=None):
         valid_data_params['ignore_english'] = args.ignore_english
         logger_params['log_file']['desc'] += '_ignore_english{}'.format(args.ignore_english)
 
-    if args.precision is not None:
-        model_params['precision'] = args.precision
-        logger_params['log_file']['desc'] += '_{}'.format(args.precision)
-    
     if args.num_epoch is not None:
         train_params['num_epoch'] = args.num_epoch
         logger_params['log_file']['desc'] += '_num_epoch{}'.format(args.num_epoch)        
