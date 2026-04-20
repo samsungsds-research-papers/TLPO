@@ -1,6 +1,6 @@
 # TLPO: Token-Level Policy Optimization for Mitigating Language Confusion in Large Language Models
 
-### This repository contains the official implementation of TLPO: Token-Level Policy Optimization for Mitigating Language Confusion in Large Language Models (ACL 2026).
+### This repository contains the official implementation of **TLPO: Token-Level Policy Optimization for Mitigating Language Confusion in Large Language Models** (ACL 2026).
 
 <p align="center">
   <img src="./images/tlpo_ab.png" alt="TLPO overview" width="45%">
@@ -62,8 +62,10 @@ Reference dataset:
 - Bactrian-X: https://huggingface.co/datasets/MBZUAI/Bactrian-X
 
 Notes:
-- TLPO, SFT, and GRPO use the dataset produced by **Step 1) Filter source questions**.
+- SFT uses the **reference dataset (Bactrian-X)**.
+- TLPO and GRPO use the dataset produced by **Step 1) Filter source questions**.
 - DPO and ORPO use the dataset produced by running **Step 1) + Step 2) + Step 3)**.
+
 
 ### 1) Filter source questions
 
@@ -74,12 +76,22 @@ Purpose:
 Output:
 - `dataset/Bactrian-X-filtered/data/{target_language}.json`
 
+Path note:
+- `dataset/Bactrian-X` is the local path where the reference Bactrian-X dataset is stored.
+
 ```bash
 python tools/filter_data/train_data_filter.py \
   --dataset_dir dataset/Bactrian-X \
   --output_dir dataset/Bactrian-X-filtered/data \
   --target_language ko
 ```
+
+
+Supported `--target_language` values:
+- `ko`
+- `zh`
+- `ar`
+- `ja`
 
 ### 2) Sample model responses (16 per prompt)
 
@@ -104,7 +116,7 @@ Run this step for each model tag used by `make_train_dataset.py`:
 - `gemma4b`
 - `ministral`
 
-### 3) Build preference-style train data (for DPO/ORPO baseline experiments)
+### 3) Build preference-style train data
 
 Purpose:
 - Check language confusion for each of the 16 sampled answers.
@@ -114,9 +126,6 @@ Purpose:
   - `chosen`: randomly sampled from non-confusion answers
   - `rejected`: randomly sampled from confusion answers
 
-Output filename pattern:
-- `{output_dir}/batcrian_dpo_random_{iet|ief}_{model_name}_{target_language}.json`
-- `iet`: `ignore_english=true`, `ief`: `ignore_english=false`
 
 ```bash
 python tools/filter_data/make_train_dataset.py \
@@ -125,6 +134,9 @@ python tools/filter_data/make_train_dataset.py \
   --target_language ko \
   --ignore_english true
 ```
+
+Baseline training note:
+- Baseline methods excluding TLPO were trained using **Hugging Face TRL**.
 
 
 ## Run TLPO Training
@@ -174,7 +186,15 @@ Copy:
 
 to your harness task directory (`lm_eval/tasks`).
 
-### 2) Run harness with `--log_samples`
+### 2) Install lm-evaluation-harness (editable)
+
+After adding the custom tasks, install the harness package in editable mode (run in the `lm-evaluation-harness` repository root):
+
+```bash
+pip install -e .
+```
+
+### 3) Run harness with `--log_samples`
 
 Generate harness outputs and sample JSONL logs (`samples_*.jsonl`), which are required by `TLPO_eval.py`.
 
@@ -213,7 +233,7 @@ Custom task notes:
 - `mif`: implemented with reference to ifeval task style
 - `lcb`: simple LLM generation-based evaluation
 
-### 3) Run TLPO consistency evaluation
+### 4) Run TLPO consistency evaluation
 
 ```bash
 python tools/evaluation/TLPO_eval.py \
@@ -229,7 +249,6 @@ Evaluation notes:
 - `--target_language` should be one of `ko`, `zh`, `ar`, `ja`.
 - `--output_dir` is where TLPO evaluation JSON files are saved.
 
-Full evaluation notes are available in [`tools/evaluation/Readme.md`](tools/evaluation/Readme.md).
 
 ## Evaluation Benchmarks
 
