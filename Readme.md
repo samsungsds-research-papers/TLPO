@@ -87,11 +87,7 @@ python tools/filter_data/train_data_filter.py \
 ```
 
 
-Supported `--target_language` values:
-- `ko`
-- `zh`
-- `ar`
-- `ja`
+Supported `--target_language` values: `ko`, `zh`, `ar`, `ja`
 
 ### 2) Sample model responses (16 per prompt)
 
@@ -155,17 +151,8 @@ python main.py \
   -target_language ko \
 ```
 
-Supported `-model_type` values:
-- `llama`
-- `qwen`
-- `gemma4b`
-- `ministral`
-
-Supported `-target_language` values:
-- `ko`
-- `zh`
-- `ar`
-- `ja`
+Supported `-model_type` values: `llama`, `qwen`, `gemma4b`, `ministral`  
+Supported `-target_language` values: `ko`, `zh`, `ar`, `ja`
 
 Training outputs are written under `./result/`.
 
@@ -198,11 +185,7 @@ pip install -e .
 
 Generate harness outputs and sample JSONL logs (`samples_*.jsonl`), which are required by `TLPO_eval.py`.
 
-Supported target languages:
-- `ko`
-- `zh`
-- `ar`
-- `ja`
+Supported target languages: `ko`, `zh`, `ar`, `ja`
 
 Locale map used by MMMLU tasks:
 
