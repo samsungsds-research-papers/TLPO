@@ -56,7 +56,7 @@ Expected structure:
     Ministral-8B-Instruct-2410/
 ```
 
-## Training Data Preparation (Bactrian-X)
+## Training Data Preparation
 
 Reference dataset:
 - Bactrian-X: https://huggingface.co/datasets/MBZUAI/Bactrian-X
